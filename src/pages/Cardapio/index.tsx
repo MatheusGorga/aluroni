@@ -6,8 +6,13 @@ function Cardapio() {
         <main>
         <nav className={styles.menu}>
         <Logo/>
-        aluroni
         </nav>
+        <header className={styles.header}>
+
+          <div className={styles.header__text}>
+            A casa da massa
+          </div>
+        </header>
       </main>
      );
 }
