@@ -22,10 +22,23 @@ function Itens({busca, filtro, ordenador} : Props) {
         return true;
     }
 
+    function ordenar(novaLista: typeof itens){
+        switch(ordenador){
+            case 'porcao':
+                return novaLista.sort((a, b) => a.size > b.size ? 1 : -1)
+            case 'qtd_pessoas':
+                return novaLista.sort((a, b) => a.serving > b.serving ? 1 : -1)
+            case 'preco':
+                return novaLista.sort((a, b) => a.price > b.price ? 1 : -1)
+            default:
+                return novaLista
+        }
+    }
+
     useEffect(() => {
         const novaLista = itens.filter(item => testeBusca(item.title) && testeFiltro(item.category.id))
-        setLista(novaLista)
-    }, [busca, filtro])
+        setLista(ordenar(novaLista))
+    }, [busca, filtro, ordenador])
 
 
     return ( 
