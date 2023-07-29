@@ -20,7 +20,6 @@ interface IItem {
 
 export default function Item(props: IItem) {
     const {category, description ,photo, price, serving, size, title} = props
-    console.log(photo)
   return (
     <div className={styles.item}>
       <div className={styles.item__imagem}>
