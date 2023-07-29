@@ -13,6 +13,7 @@ function Buscador({busca, setBusca}: Props) {
         <div className={styles.buscador}>
             <input type="text"
                 value={busca}
+                placeholder='Buscar'
                 onChange={(e) => setBusca(e.target.value)}
             />
             <CgSearch size={20} color='#4c4d5e'/>

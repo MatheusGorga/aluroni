@@ -3,15 +3,20 @@ import styles from './Filtros.module.scss'
 
 type IOpcao = typeof filtros[0]
 
-function Filtros() {
-    function selecionarFiltro (opcao: IOpcao){
+interface Props {
+    filtro: number | null;
+    setFiltro: React.Dispatch<React.SetStateAction<number | null>>
+}
 
+function Filtros({filtro, setFiltro} : Props) {
+    function selecionarFiltro (opcao: IOpcao){
+       return setFiltro(opcao.id);
     }
   return (
     <div className={styles.filtros}>
       {filtros.map((opcao) => (
         <button 
-            className={styles.filtros__filtro}
+            className={`${styles.filtros__filtro} ${filtro === opcao.id && styles["filtros__filtro--ativo"]} ` }
             key={opcao.id}
             onClick={() => selecionarFiltro(opcao)}
         >{opcao.label}</button>
