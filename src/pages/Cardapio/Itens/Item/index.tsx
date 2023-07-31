@@ -11,7 +11,7 @@ interface IItem {
     category: Category
   }
   
-  export interface Category {
+export interface Category {
     id: number
     label: string
   }
@@ -19,7 +19,7 @@ interface IItem {
 
 
 export default function Item(props: IItem) {
-    const {category, description ,photo, price, serving, size, title} = props
+  const {category, description ,photo, price, serving, size, title} = props;
   return (
     <div className={styles.item}>
       <div className={styles.item__imagem}>
@@ -33,7 +33,7 @@ export default function Item(props: IItem) {
         <div className={styles.item__tags}>
           <div className={`${styles.item__tipo} ${styles[`item__tipo__${category.label.toLowerCase()}`]} `}>{category.label}</div>
           <div className={styles.item__porcao}>{size}</div>
-          <div className={styles.item__qtdpessoas}>Serve {serving} pessoa{serving=== 1? '' : "s" }</div>
+          <div className={styles.item__qtdpessoas}>Serve {serving} pessoa{serving=== 1? '' : 's' }</div>
           <div className={styles.item__valor}>R$ {price.toFixed(2)}</div>
         </div>
       </div>

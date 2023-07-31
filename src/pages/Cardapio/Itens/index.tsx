@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import styles from './Intens.module.scss'
+import styles from './Intens.module.scss';
 import Item from './Item';
-import itens from './itens.json'
+import itens from './itens.json';
 
 interface Props {
     busca: string;
@@ -10,45 +10,45 @@ interface Props {
 }
 
 function Itens({busca, filtro, ordenador} : Props) {
-    const [lista, setLista] = useState(itens)
+  const [lista, setLista] = useState(itens);
 
-    function testeBusca(title: string){
-        const regex = new RegExp(busca, 'i');
-        return regex.test(title)
+  function testeBusca(title: string){
+    const regex = new RegExp(busca, 'i');
+    return regex.test(title);
+  }
+
+  function testeFiltro(id: number ){
+    if(filtro !== null) return filtro === id;
+    return true;
+  }
+
+  function ordenar(novaLista: typeof itens){
+    switch(ordenador){
+    case 'porcao':
+      return novaLista.sort((a, b) => a.size > b.size ? 1 : -1);
+    case 'qtd_pessoas':
+      return novaLista.sort((a, b) => a.serving > b.serving ? 1 : -1);
+    case 'preco':
+      return novaLista.sort((a, b) => a.price > b.price ? 1 : -1);
+    default:
+      return novaLista;
     }
+  }
 
-    function testeFiltro(id: number ){
-        if(filtro !== null) return filtro === id;
-        return true;
-    }
-
-    function ordenar(novaLista: typeof itens){
-        switch(ordenador){
-            case 'porcao':
-                return novaLista.sort((a, b) => a.size > b.size ? 1 : -1)
-            case 'qtd_pessoas':
-                return novaLista.sort((a, b) => a.serving > b.serving ? 1 : -1)
-            case 'preco':
-                return novaLista.sort((a, b) => a.price > b.price ? 1 : -1)
-            default:
-                return novaLista
-        }
-    }
-
-    useEffect(() => {
-        const novaLista = itens.filter(item => testeBusca(item.title) && testeFiltro(item.category.id))
-        setLista(ordenar(novaLista))
-    }, [busca, filtro, ordenador])
+  useEffect(() => {
+    const novaLista = itens.filter(item => testeBusca(item.title) && testeFiltro(item.category.id));
+    setLista(ordenar(novaLista));
+  }, [busca, filtro, ordenador]);
 
 
-    return ( 
-        <div className={styles.itens}>
-            {lista.map((item) => (
-                <Item key={item.id}  {...item} />
-            ))}      
+  return ( 
+    <div className={styles.itens}>
+      {lista.map((item) => (
+        <Item key={item.id}  {...item} />
+      ))}      
 
-        </div>
-     );
+    </div>
+  );
 }
 
 export default Itens;
