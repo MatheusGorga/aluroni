@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import styles from './Pagina.module.scss';
+import stylesTema from 'styles/Tema.module.scss';
 
 function PaginaPadrao() {
   return (
@@ -8,7 +9,9 @@ function PaginaPadrao() {
         <div className={styles.header__text}>A casa da massa</div>
       </header>
 
-      <Outlet />
+      <div className={stylesTema.container}> 
+        <Outlet />
+      </div>
     </>
   );
 }

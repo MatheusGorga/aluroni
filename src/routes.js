@@ -2,7 +2,6 @@ import AppBar from 'components/Menu';
 import Cardapio from 'pages/Cardapio';
 import Inicio from 'pages/Inicio';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import styles from './Routes.module.scss';
 import PaginaPadrao from 'components/PaginaPadrao';
 
 function AppRouter() {
