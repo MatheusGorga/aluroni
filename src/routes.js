@@ -3,6 +3,7 @@ import Cardapio from 'pages/Cardapio';
 import Inicio from 'pages/Inicio';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import PaginaPadrao from 'components/PaginaPadrao';
+import Sobre from 'pages/Sobre';
 
 function AppRouter() {
   return (
@@ -13,6 +14,7 @@ function AppRouter() {
           <Route path="/" element={<PaginaPadrao />}>
             <Route index element={<Inicio/>}/>
             <Route path="cardapio" element={<Cardapio />} />
+            <Route path='sobre' element={<Sobre />} /> 
           </Route>
           
         </Routes>

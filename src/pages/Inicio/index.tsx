@@ -1,6 +1,7 @@
 import cardapio from 'data/cardapio.json';
 import styles from './inicio.module.scss';
 import stylesTema from 'styles/Tema.module.scss';
+import nossaCasa from 'assets/nossa_casa.png';
 
 function Inicio() {
   let pratosRecomendados = [...cardapio];
@@ -19,6 +20,15 @@ function Inicio() {
             </div>
           </div>
         ))}
+      </div> 
+      <h3 className={stylesTema.titulo}>
+        Nossa casa
+      </h3>
+      <div className={styles.nossaCasa}>
+        <img src={nossaCasa} alt="casa aluroni" />
+        <div className={styles.nossaCasa__endereco}>
+              Rua Teste NH <br /><br /> Alura - Sp
+        </div>
       </div>
     </section>
   );
