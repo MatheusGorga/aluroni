@@ -1,23 +1,7 @@
 import styles from './Prato.module.scss';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import cardapio from 'data/cardapio.json';
 
-
-interface Props {
-    prato: {
-        title: string;
-        description: string;
-        photo: string;
-        size: number;
-        serving: number;
-        price: number;
-        id: number;
-        category: {
-            id: number;
-            label: string;
-        };
-    }
-}
 
 function Prato() {
 

@@ -1,24 +1,8 @@
+import { Prato } from 'types/Prato';
 import styles from './Item.module.scss'; 
 
-interface IItem {
-    title: string
-    description: string
-    photo: string
-    size: number
-    serving: number
-    price: number
-    id: number
-    category: Category
-  }
-  
-export interface Category {
-    id: number
-    label: string
-  }
 
-
-
-export default function Item(props: IItem) {
+export default function Item(props: Prato) {
   const {category, description ,photo, price, serving, size, title} = props;
   return (
     <div className={styles.item}>
